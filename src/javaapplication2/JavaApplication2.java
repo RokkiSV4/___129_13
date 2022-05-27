@@ -5,10 +5,7 @@
  */
 package javaapplication2;
 
-/**
- *
- * @author 20509
- */
+
 public class JavaApplication2 {
 
     
@@ -17,7 +14,12 @@ public class JavaApplication2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       int a=10;
+       SessionFacroty sf= NewHibernateUtil.getSessionFactory();
+       Session s = sf.openSession();
+       Transaction t1 = s.beginTransaction();
+       t1.commit();
+       s.close();
     }
-    
+
+   
 }
