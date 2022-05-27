@@ -2,8 +2,12 @@ package utility;
 // Generated 27.05.2022 18:06:45 by Hibernate Tools 4.3.1
 
 
+import static java.nio.file.Files.list;
+import static java.rmi.Naming.list;
+import static java.util.Collections.list;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,7 +38,7 @@ public class Gruppyi  implements java.io.Serializable {
      private int kodPlana;
      private String status;
      private Date statusDate;
-     private Set studentyis = new HashSet(0);
+     private List <Studentyi> studentyis;
 
     public Gruppyi() {
     }
@@ -45,7 +49,7 @@ public class Gruppyi  implements java.io.Serializable {
         this.dataFormir = dataFormir;
         this.kodPlana = kodPlana;
     }
-    public Gruppyi(String nazvanie, Date dataFormir, int kodPlana, String status, Date statusDate, Set studentyis) {
+    public Gruppyi(String nazvanie, Date dataFormir, int kodPlana, String status, Date statusDate, List <Studentyi> studentyis) {
        this.nazvanie = nazvanie;
        this.dataFormir = dataFormir;
        this.kodPlana = kodPlana;
@@ -117,11 +121,11 @@ public class Gruppyi  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="gruppyi")
-    public Set getStudentyis() {
+    public List <Studentyi> getStudentyis() {
         return this.studentyis;
     }
     
-    public void setStudentyis(Set studentyis) {
+    public void setStudentyis(List <Studentyi> studentyis) {
         this.studentyis = studentyis;
     }
 
